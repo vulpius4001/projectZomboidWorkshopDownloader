@@ -32,8 +32,8 @@ fi
 
 [[ -z "${SKIPEXISTING}" ]] && skipExisting=0 || skipExisting=${SKIPEXISTING}
 [[ -z "${AUTOCOPY}" ]] && autoCopyToFolder=1 || autoCopyToFolder=${AUTOCOPY}
-[[ -z "${CLEANINSTALL}" ]] && cleanMod=1 || cleanMod=${CLEANINSTALL}
-[[ -z "${EXIT}" ]] && exitOnEnd=1 || exitOnEnd=${EXIT}
+[[ -z "${CLEANINSTALL}" ]] && cleanMod=0 || cleanMod=${CLEANINSTALL}
+[[ -z "${EXIT}" ]] && exitOnEnd=0 || exitOnEnd=${EXIT}
 
 skipValid=0
 autoValid=0
