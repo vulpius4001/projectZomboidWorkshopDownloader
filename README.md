@@ -16,3 +16,10 @@ scmdOutputFile      = Default: "$scriptDir/steamCmdOut.txt", steamcmd output fil
 logOutputFile       = Default: "$scriptDir/DownloadProjectMods.log", script output file <br />
 urlFile             = Default: "$scriptDir/urlInput.txt", a text file containing all the URLs to the steam workshop mod page <br />
 <br />
+on urlInput.txt file, you need to add the steam workshop mod page per line <br />
+example:<br />
+https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993<br />
+https://steamcommunity.com/sharedfiles/filedetails/?id=2619072426<br />
+https://steamcommunity.com/sharedfiles/filedetails/?id=2297098490<br />
+https://steamcommunity.com/sharedfiles/filedetails/?id=2200148440<br />
+and so on<br />
