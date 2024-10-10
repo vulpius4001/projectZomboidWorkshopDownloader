@@ -24,7 +24,7 @@ mkdir -p $scmdInstallDir
 
 if ! command -v steamcmd &> /dev/null
 then
-	echolog "[!] steamcmd Not found! please install it using the command \"sudo apt install steamcmd -y\""
+	echoLog "[!] steamcmd Not found! please install it using the command \"sudo apt install steamcmd -y\""
 	errorcode=4
 	exit $errorcode
 fi
@@ -100,16 +100,16 @@ fi
 
 if (test -f $urlFile); then
 	inputUrlsIds=$(grep "id=" $urlFile | cut -d "=" -f2 | cut -d "&" -f1)
-	
+
 	vartemp=$(date +"%H:%M:%S - %d/%m/%Y")
 	echo "[=== $vartemp ===]" >> $scmdOutputFile
-	
+
 	rm -f /tmp/tempScript > /dev/null
 	echo "@ShutdownOnFailedCommand 1" >> /tmp/tempScript
 	echo "@NoPromptForPassword 1" >> /tmp/tempScript
 	echo "force_install_dir $scmdInstallDir" >> /tmp/tempScript
 	echo "login anonymous anonymous" >> /tmp/tempScript
-	
+
 	for urlId in $inputUrlsIds
 	do
 		re="^[0-9]+$"
@@ -126,7 +126,7 @@ if (test -f $urlFile); then
 		fi
 	done
 	echo "quit" >> /tmp/tempScript
-	
+
 	echoLog "[!] [Download URL Input] Running generated download script..."
 	steamcmd +runscript /tmp/tempScript >> $scmdOutputFile
 	echoLog "[!] [Download URL Input] Deleting generated download script..."
@@ -136,7 +136,7 @@ else
 	errorcode=2
 	read -r -p "[!] Continue executing the script? [Y/n] " response
 	case "$response" in
-	    [yY]) 
+	    [yY])
 	    	echo "[!] Continue executing the script? [Y/n] $response" >> $logOutputFile
 		echoLog "[!] Resuming..."
 		sleep 1.5
@@ -167,7 +167,7 @@ fi
 
 if [ $autoCopyToFolder -eq 1 ]; then
 	echoLog "[!] [AutoCopy] Copying..."
-	
+
 	outputs=$(ls $scmdModsDir | cut -f1 -d'/')
 	mkdir -p $zomboidDir
 	for id in $outputs
@@ -204,4 +204,5 @@ else
 	errorcode=1
 	exit $errorcode
 fi
+
 
